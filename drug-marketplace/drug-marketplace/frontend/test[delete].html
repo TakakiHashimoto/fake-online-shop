@@ -1,0 +1,395 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>SHADOWCART | IDENTITY_CREATION</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#095300",
+              "on-background": "#e5e2e3",
+              "secondary-container": "#d05bff",
+              "on-secondary-fixed-variant": "#75009e",
+              "surface-container-highest": "#353436",
+              secondary: "#ecb1ff",
+              "primary-fixed": "#79ff5b",
+              "surface-tint": "#2ae500",
+              "on-surface": "#e5e2e3",
+              "on-tertiary-container": "#006c73",
+              error: "#ffb4ab",
+              tertiary: "#ecfdff",
+              "primary-fixed-dim": "#2ae500",
+              "surface-container-low": "#1c1b1c",
+              "on-tertiary-fixed-variant": "#004f54",
+              "on-secondary-container": "#480063",
+              "tertiary-fixed": "#7df4ff",
+              "surface-variant": "#353436",
+              "surface-container": "#201f20",
+              "on-primary": "#053900",
+              "on-secondary": "#520070",
+              "on-primary-fixed": "#022100",
+              "on-secondary-fixed": "#320046",
+              "on-error-container": "#ffdad6",
+              "on-primary-container": "#107100",
+              "surface-container-lowest": "#0e0e0f",
+              outline: "#85967c",
+              "surface-dim": "#131314",
+              "inverse-primary": "#106e00",
+              "tertiary-fixed-dim": "#00dbe9",
+              "tertiary-container": "#55f2ff",
+              "on-tertiary-fixed": "#002022",
+              "on-surface-variant": "#baccb0",
+              "inverse-on-surface": "#313031",
+              primary: "#efffe3",
+              "secondary-fixed": "#f9d8ff",
+              "primary-container": "#39ff14",
+              surface: "#131314",
+              "inverse-surface": "#e5e2e3",
+              "outline-variant": "#3c4b35",
+              "on-error": "#690005",
+              "surface-container-high": "#2a2a2b",
+              background: "#131314",
+              "secondary-fixed-dim": "#ecb1ff",
+              "error-container": "#93000a",
+              "surface-bright": "#3a393a",
+              "on-tertiary": "#00363a",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              md: "24px",
+              xs: "8px",
+              lg: "40px",
+              xl: "64px",
+              "container-max": "1280px",
+              base: "4px",
+              margin: "24px",
+              sm: "16px",
+              gutter: "20px",
+            },
+            fontFamily: {
+              "body-md": ["Inter"],
+              "headline-md": ["Inter"],
+              "headline-lg": ["Inter"],
+              "headline-lg-mobile": ["Inter"],
+              "code-sm": ["JetBrains Mono"],
+              "body-lg": ["Inter"],
+              "label-mono": ["JetBrains Mono"],
+            },
+            fontSize: {
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "700" }],
+              "headline-lg": [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "800",
+                },
+              ],
+              "headline-lg-mobile": [
+                "32px",
+                { lineHeight: "1.2", fontWeight: "800" },
+              ],
+              "code-sm": ["12px", { lineHeight: "1.4", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              "label-mono": [
+                "14px",
+                {
+                  lineHeight: "1.0",
+                  letterSpacing: "0.05em",
+                  fontWeight: "500",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #0a0a0b;
+        background-image: radial-gradient(
+          circle at 50% 50%,
+          rgba(57, 255, 20, 0.05) 0%,
+          transparent 70%
+        );
+      }
+      .cyber-glass {
+        background: rgba(20, 20, 22, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(28, 28, 31, 1);
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+      }
+      .neon-glow:hover {
+        box-shadow: 0 0 15px rgba(42, 229, 0, 0.4);
+      }
+      .glitch-subtle {
+        text-shadow:
+          2px 0 #d05bff,
+          -2px 0 #2ae500;
+      }
+      .scanline {
+        width: 100%;
+        height: 2px;
+        background: rgba(42, 229, 0, 0.1);
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        animation: scan 8s linear infinite;
+      }
+      @keyframes scan {
+        0% {
+          top: 0;
+        }
+        100% {
+          top: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="font-body-md text-on-background min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container"
+  >
+    <!-- Hero Background Image (Layered underneath) -->
+    <div class="fixed inset-0 z-[-1] opacity-20">
+      <img
+        alt=""
+        class="w-full h-full object-cover grayscale"
+        data-alt="A cinematic, wide shot of a high-tech server room with glowing green status lights reflecting off polished dark floors. The atmosphere is dense with digital fog and intricate cable management. Cyberpunk aesthetic with deep charcoal shadows and vibrant toxic green highlights. Intricate architectural lines suggest a high-security encrypted facility. The mood is mysterious and advanced."
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8yQxyA4dXR-xzxkgxM2obzgxg5PcrilMMNaV1dH3ZrJspvf2sDViQ88i0JNfUBrMKSIxHUiu3nePKJa_9kfXnnchpO-xfFyTUrJ2RgEN7KbpuXjWLMXqMG0R3m3QihRt_JX1KI1O5PG9wMENDvi3GT17wDKI-xSiOohZpL_D_cgLkkAafym9n9MhWlXsOt1pEnEmVDhI20gKDqyD4ojtyoJAobIHRonZtHOC4hCmnlTDn_pRIZrVyUrDCrOgcEk471OroC0ZgHXo"
+      />
+    </div>
+    <!-- Main Content Container -->
+    <main
+      class="flex-grow flex flex-col items-center justify-center p-margin relative overflow-hidden"
+    >
+      <div class="scanline"></div>
+      <!-- Branding Header -->
+      <header class="mb-xl text-center">
+        <h1
+          class="font-headline-md text-headline-md font-black tracking-tighter text-primary-fixed-dim drop-shadow-[0_0_8px_rgba(42,229,0,0.6)] glitch-subtle"
+        >
+          SHADOWCART
+        </h1>
+        <p
+          class="font-label-mono text-label-mono text-on-surface-variant mt-xs tracking-[0.2em]"
+        >
+          IDENTITY_CREATION // REGISTER
+        </p>
+      </header>
+      <!-- Auth Card -->
+      <div
+        class="w-full max-w-[480px] cyber-glass rounded-xl overflow-hidden relative group"
+      >
+        <!-- Tabs -->
+        <!-- Form Content -->
+        <div class="p-lg space-y-lg">
+          <!-- Role Selector -->
+          <div class="space-y-sm">
+            <label
+              class="font-label-mono text-label-mono text-on-surface-variant uppercase text-[10px] tracking-widest"
+              >Select Operational Identity</label
+            >
+            <div class="grid grid-cols-2 gap-sm">
+              <button
+                class="flex items-center justify-center gap-xs p-sm border border-primary-fixed-dim bg-primary-fixed-dim/10 text-primary-fixed-dim rounded-lg font-label-mono text-label-mono transition-all active:scale-95"
+              >
+                <span
+                  class="material-symbols-outlined text-[18px]"
+                  data-icon="person"
+                  >person</span
+                >
+                Customer
+              </button>
+              <button
+                class="flex items-center justify-center gap-xs p-sm border border-outline-variant hover:border-secondary text-on-surface-variant hover:text-secondary rounded-lg font-label-mono text-label-mono transition-all active:scale-95"
+              >
+                <span
+                  class="material-symbols-outlined text-[18px]"
+                  data-icon="storefront"
+                  >storefront</span
+                >
+                Seller
+              </button>
+            </div>
+          </div>
+          <!-- Input Fields -->
+          <div class="space-y-md">
+            <div class="space-y-xs">
+              <label
+                class="font-label-mono text-label-mono text-on-surface-variant uppercase text-[10px] tracking-widest"
+                >Network Handle / Email</label
+              >
+              <div class="relative">
+                <input
+                  class="w-full bg-surface-container-lowest border border-outline-variant/40 focus:border-primary-fixed-dim focus:ring-1 focus:ring-primary-fixed-dim text-on-surface font-code-sm px-md py-sm rounded-lg placeholder:text-on-surface-variant/30 outline-none transition-all"
+                  placeholder="DREAD_PIRATE_7..."
+                  type="text"
+                />
+                <span
+                  class="absolute right-md top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant/40 text-[18px]"
+                  data-icon="alternate_email"
+                  >alternate_email</span
+                >
+              </div>
+            </div>
+            <div class="space-y-xs">
+              <label
+                class="font-label-mono text-label-mono text-on-surface-variant uppercase text-[10px] tracking-widest"
+                >Encrypted Pass-key</label
+              >
+              <div class="relative">
+                <input
+                  class="w-full bg-surface-container-lowest border border-outline-variant/40 focus:border-primary-fixed-dim focus:ring-1 focus:ring-primary-fixed-dim text-on-surface font-code-sm px-md py-sm rounded-lg placeholder:text-on-surface-variant/30 outline-none transition-all"
+                  placeholder="••••••••••••"
+                  type="password"
+                />
+                <span
+                  class="absolute right-md top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant/40 text-[18px]"
+                  data-icon="lock"
+                  >lock</span
+                >
+              </div>
+            </div>
+            <div class="space-y-xs">
+              <label
+                class="font-label-mono text-label-mono text-on-surface-variant uppercase text-[10px] tracking-widest"
+                >Confirm Pass-key</label
+              >
+              <div class="relative">
+                <input
+                  class="w-full bg-surface-container-lowest border border-outline-variant/40 focus:border-primary-fixed-dim focus:ring-1 focus:ring-primary-fixed-dim text-on-surface font-code-sm px-md py-sm rounded-lg placeholder:text-on-surface-variant/30 outline-none transition-all"
+                  placeholder="••••••••••••"
+                  type="password"
+                /><span
+                  class="absolute right-md top-1/2 -translate-y-1/2 material-symbols-outlined text-on-surface-variant/40 text-[18px]"
+                  >verified_user</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- CTA Button -->
+          <button
+            class="w-full bg-primary-fixed-dim text-on-primary font-headline-md text-[18px] py-md rounded-lg font-black tracking-tight neon-glow transition-all active:scale-95 hover:brightness-110 flex items-center justify-center gap-sm"
+          >
+            CREATE IDENTITY
+            <span class="material-symbols-outlined">fingerprint</span>
+          </button>
+          <!-- Divider -->
+          <div class="relative flex items-center py-sm">
+            <div class="flex-grow border-t border-outline-variant/30"></div>
+            <span
+              class="flex-shrink mx-md font-label-mono text-code-sm text-on-surface-variant/50"
+              >SECURE THIRD-PARTY NODE</span
+            >
+            <div class="flex-grow border-t border-outline-variant/30"></div>
+          </div>
+          <!-- Social/Alt Auth -->
+          <div class="grid grid-cols-2 gap-sm">
+            <button
+              class="flex items-center justify-center gap-xs p-sm border border-outline-variant hover:bg-surface-variant/30 text-on-surface rounded-lg font-label-mono text-label-mono transition-all active:scale-95 group"
+            >
+              <span
+                class="material-symbols-outlined text-[20px] text-tertiary-fixed-dim"
+                data-icon="account_balance_wallet"
+                >account_balance_wallet</span
+              >
+              Wallet
+            </button>
+            <button
+              class="flex items-center justify-center gap-xs p-sm border border-outline-variant hover:bg-surface-variant/30 text-on-surface rounded-lg font-label-mono text-label-mono transition-all active:scale-95 group"
+            >
+              <span
+                class="material-symbols-outlined text-[20px] text-secondary"
+                data-icon="fingerprint"
+                >fingerprint</span
+              >
+              Passkey
+            </button>
+          </div>
+        </div>
+        <!-- Status Footer -->
+        <div
+          class="bg-surface-container-low/50 px-lg py-sm border-t border-outline-variant/20 flex justify-between items-center"
+        >
+          <div class="flex items-center gap-xs">
+            <div
+              class="w-2 h-2 rounded-full bg-primary-fixed-dim animate-pulse"
+            ></div>
+            <span class="font-code-sm text-code-sm text-primary-fixed-dim/80"
+              >NODE_STATUS: ONLINE</span
+            >
+          </div>
+          <span class="font-code-sm text-code-sm text-on-surface-variant/40"
+            >LATENCY: 14MS</span
+          >
+        </div>
+      </div>
+      <!-- Support Info -->
+      <p
+        class="mt-lg font-code-sm text-code-sm text-on-surface-variant/60 max-w-sm text-center"
+      >
+        ALREADY PART OF THE VOID?
+        <span class="text-primary-fixed-dim hover:underline cursor-pointer ml-1"
+          >INITIATE_LOGIN.</span
+        >
+      </p>
+    </main>
+    <!-- Footer Component from JSON -->
+    <footer
+      class="bg-surface-container-lowest w-full py-xl border-t border-outline-variant/30 flex flex-col items-center justify-center gap-md px-margin text-center"
+    >
+      <div class="text-primary-fixed-dim font-black font-code-sm text-code-sm">
+        SHADOWCART
+      </div>
+      <div class="flex flex-wrap justify-center gap-md">
+        <a
+          class="text-on-surface-variant font-code-sm text-code-sm hover:text-primary-fixed-dim transition-all"
+          href="#"
+          >Terms of Chaos</a
+        >
+        <a
+          class="text-on-surface-variant font-code-sm text-code-sm hover:text-primary-fixed-dim transition-all"
+          href="#"
+          >Privacy (lol)</a
+        >
+        <a
+          class="text-on-surface-variant font-code-sm text-code-sm hover:text-primary-fixed-dim transition-all"
+          href="#"
+          >Contact Void</a
+        >
+      </div>
+      <p
+        class="font-code-sm text-code-sm text-on-surface-variant max-w-2xl opacity-50"
+      >
+        © 1999-2024 SHADOWCART. NOT AFFILIATED WITH ANY GOVERNMENT ENTITIES
+        (PROBABLY). USE AT YOUR OWN RISK. NO REFUNDS IN THIS DIMENSION.
+      </p>
+    </footer>
+  </body>
+</html>

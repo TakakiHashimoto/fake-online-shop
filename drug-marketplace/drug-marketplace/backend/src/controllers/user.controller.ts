@@ -3,10 +3,7 @@ import bcrypt from "bcrypt";
 import { env } from "../config/env";
 import userService from "../services/user.service";
 import jwt from "jsonwebtoken";
-
-export interface AuthRequest extends Request {
-  userId?: string;
-}
+import { AuthRequest } from "../types/type";
 
 // ########################################## SIGNUP #########################################################
 async function signupUser(req: Request, res: Response) {
@@ -138,13 +135,14 @@ async function logoutUser(req: Request, res: Response) {
 
 // ########################################## GETME #######################################################
 async function getMe(req: AuthRequest, res: Response) {
-  const userId = req.userId;
-
-  if (!userId) {
+  const user = req.user;
+  if (!user) {
     return res
       .status(403)
       .json({ ok: false, message: "User is not authenticated" });
   }
+
+  const userId = user.id;
   try {
     const user = await userService.getUserById(userId);
 

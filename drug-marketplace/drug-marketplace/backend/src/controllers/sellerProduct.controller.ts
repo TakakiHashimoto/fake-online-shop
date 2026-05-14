@@ -95,6 +95,10 @@ async function editProduct(req: AuthRequest, res: Response) {
   const user = req.user;
   const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
 
+  if (!Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ ok: false, message: "Invalid product id" });
+  }
+
   if (!user) {
     return res
       .status(401)
@@ -194,6 +198,11 @@ async function editProduct(req: AuthRequest, res: Response) {
 async function removeProduct(req: AuthRequest, res: Response) {
   // seller id and produc id needs to match
   const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+
+  if (!Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ ok: false, message: "Invalid product id" });
+  }
+
   if (!req.user) {
     return res
       .status(401)

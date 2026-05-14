@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { Types } from "mongoose";
 import productService from "../services/product.service";
 
 async function fetchProducts(req: Request, res: Response) {
@@ -15,6 +16,11 @@ async function fetchProducts(req: Request, res: Response) {
 
 async function fetchProductById(req: Request, res: Response) {
   const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+
+  if (!Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ ok: false, message: "Invalid product id" });
+  }
+
   try {
     const product = await productService.getProductById(id);
     if (!product) {
